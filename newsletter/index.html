@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+  
+  <style>
+
+
+    
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      background-color: var(--color-blue-800);
+      min-height: 100vh;
+      display: flex;
+      
+      justify-content: center;
+      align-items: center;
+    }
+    @font-face {
+      font-family: 'Roboto';
+      src: url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+
+
+    @font-face {
+      font-family: 'Roboto';
+      src: url('./assets/fonts/Roboto-Bold.ttf') format('truetype');
+      font-weight: 700;
+    }
+
+    :root {
+      --color-primary-red: hsl(4, 100%, 67%);
+      --color-blue-800: hsl(234, 29%, 20%);
+      --color-blue-700: hsl(235, 18%, 26%);
+      --color-grey: hsl(0, 0%, 58%);
+      --color-white: hsl(0, 0%, 100%);
+    }
+
+
+
+    .signup-card {
+      background-color: var(--color-white);
+      border-radius: 15px;    
+      overflow: hidden;
+      padding: 0;
+      max-width: 375px;
+      margin: 1rem;
+    }
+
+    .image-container {
+      order: -1;
+      width: 100%;
+      height: auto;
+    }
+
+    .image-container img {
+      border-radius: 15px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .signup-form {
+      padding: 2rem;
+    }
+
+    .signup-form h1 {
+      color: var(--color-blue-800);
+      margin-bottom: 1.5rem;
+    }
+
+    .features {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .features li {
+      margin: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: url('./assets/images/icon-list.svg') no-repeat center;
+    }
+
+    .form-group {
+      margin: 1.5rem 0;
+    }
+
+    label {
+      display: block;
+      color: var(--color-blue-800);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid var(--color-grey);
+      border-radius: 8px;
+      font-family: inherit;
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--color-blue-800);
+      color: var(--color-white);
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: var(--color-primary-red);
+    }
+
+    .success-message {
+      display: none;
+      background-color: var(--color-white);
+      border-radius: 15px;
+      max-width: 375px;
+      padding: 2rem;
+      margin: 1rem;
+      text-align: left;
+    }
+  
+    .success-message img {
+      width: 64px;
+      margin-bottom: 2rem;
+    }
+  
+    .success-message h2 {
+      color: var(--color-blue-800);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .success-message p {
+      color: var(--color-blue-700);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+  
+    .success-message button {
+      margin-top: 1rem;
+    }
+  
+    .success-message .highlighted-email {
+      font-weight: 700;
+    }
+  
+    @media (min-width: 768px) {
+      .success-message {
+        max-width: 450px;
+        padding: 3rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .signup-card {
+        max-width: 900px;
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 2rem;
+        padding: 1.5rem;
+        align-items: center;
+      }
+
+      .image-container {
+        flex: 1;
+        order: 1;
+        height: 500px;
+      }
+
+      .signup-form {
+        flex: 1;
+        padding: 1rem;
+      }
+    }
+
+    .attribution {
+      position: fixed;
+      bottom: 1rem;
+      color: var(--color-white);
+    }
+    @media screen and (max-width: 768px) {
+      .image-container img {
+        display: none;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+  <main class="signup-card">
+    <div class="image-container">
+      <img src="./assets/images/illustration-sign-up-desktop.svg" alt="Illustration of an email inbox">
+    </div>
+    <div class="signup-form">
+      <h1>Stay updated!</h1>
+      <p>Join 60,000+ product managers receiving monthly updates on:</p>
+      <ul class="features">
+        <li>Product discovery and building what matters</li>
+        <li>Measuring to ensure updates are a success</li>
+        <li>And much more!</li>
+      </ul>
+
+      <form id="newsletter-form">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" placeholder="email@company.com" required>
+        </div>
+        <button type="submit">Subscribe to monthly newsletter</button>
+      </form>
+    </div>
+  </main>
+
+  <div class="success-message" id="success">
+
+    <img src="assets/images/icon-success.svg" alt="Success icon">
+    <h2>Thanks for subscribing!</h2>
+    <p>A confirmation email has been sent to <span id="confirmed-email" class="highlighted-email"></span>. 
+    Please open it and click the button inside to confirm your subscription.</p>
+    <button onclick="dismissMessage()">Dismiss message</button>
+  </div>
+
+  <div class="attribution">
+    
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Applesx</a>.
+  </div>
+
+  <script>
+    const form = document.getElementById('newsletter-form');
+    const successMessage = document.getElementById('success');
+    const confirmedEmail = document.getElementById('confirmed-email');
+    const signupCard = document.querySelector('.signup-card');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      confirmedEmail.textContent = email;
+      signupCard.style.display = 'none';
+      successMessage.style.display = 'block';
+    });
+
+    function dismissMessage() {
+      successMessage.style.display = 'none';
+      signupCard.style.display = '';
+      form.reset();
+    }
+  </script>
+</body>
+</html>

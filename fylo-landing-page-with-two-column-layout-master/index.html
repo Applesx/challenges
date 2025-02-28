@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Raleway', sans-serif;
+      background-color: rgb(0, 0, 0);
+      color: hsl(0, 0%, 100%);
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .nav-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 3rem;
+        color: white;
+      }
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 90%;
+    }
+    .image-container {
+      width: 50%;
+      height: auto;
+    }
+    .image-container img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .hero-content {
+      width: 50%;
+      padding: 2rem;
+    }
+    .input-row {
+      display: flex;
+      gap: 1rem;
+    }
+    input {
+      padding: 1rem;
+      border-radius: 5px;
+      border: none;
+      width: 70%;
+    }
+    button {
+      padding: 1rem 1rem;
+      border-radius: 5px;
+      border: none;
+      background-color: hsl(224, 93%, 58%);
+      color: white;
+    }
+    @media screen and (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        padding: 1rem;
+        gap: 1.5rem;
+        width: 95%;
+      }
+      .image-container {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+    .hero2{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 90%;
+    }
+    .right-content {
+      width: 50%;
+      padding: 2rem;
+    }
+    .left-image-container {
+      width: 50%;
+      height: auto;
+    }
+    .left-image-container img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .testimonial {
+  padding: 4rem 2rem;
+  background: #f8f8fe;
+}
+
+.testimonial-card {
+  max-width: 360px;
+  padding: 2rem;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.hero p {
+  color: #070439;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial {
+  padding: clamp(2rem, 5vw, 4rem);
+  background: #f8f8fe;
+  margin: 4rem auto;
+}
+
+.testimonial-card {
+  max-width: min(90%, 360px);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.testimonial-card p {
+  color: #070439;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile img {
+  width: clamp(32px, 5vw, 40px);
+  border-radius: 50%;
+}
+
+.profile h4 {
+  color: #070439;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  margin: 0;
+}
+
+.profile p {
+  color: #585989;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .testimonial {
+    padding: 2rem 1rem;
+  }
+  
+  .testimonial-card {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero p {
+    text-align: center;
+  }
+  
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.profile img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.early-access {
+  background: #575989;
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.early-access .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.input-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 4px;
+  border: none;
+}
+
+.input-row button {
+  padding: 1rem 2rem;
+  background: #3065f8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+footer {
+  background: #070439;
+  color: white;
+  padding: 4rem 2rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  line-height: 2;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .input-row {
+    flex-direction: column;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="./images/logo.svg" alt="Fylo logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Sign In</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>All your files in one secure location, accessible anywhere</h1>
+      <p>Fylo stores your most important files in one scure location acces them wherever you need share and collaborate with friends and family and co-workers</p>
+        <div class="input-row">
+        <input type="email" placeholder="enter your email">
+        <button>Get Started</button>
+        </div>
+        
+      </div>
+      <div class="image-container">
+        <img src="./images/illustration-1.svg" alt="illustration"/>
+      </div>
+  </section>
+  <section class="hero2">
+    <div class="left-image-container">
+      <img src="./images/illustration-2.svg" alt="illustration"/>
+    </div>
+    <div class="right-content">
+      <h2>Stay productive, wherever you are</h2>
+      <p>Never let location be an issue when accessing your files. Fylo has you covered for all of your file storage needs.</p>
+      <p>Securely share files and folders with friends, family and colleagues for live collaboration. No email attachments required!</p>
+      <div class="input-row">
+        <input type="email" placeholder="enter your email">
+        <button>Get Started</button>
+      </div>
+    </div>
+  </section>
+  <section class="testimonial">
+    <div class="testimonial-card">
+      <p>Fylo has improved our team productivity by an order of magnitude.
+         Since making the switch our team has become a well-oiled collaboration machine.</p>
+      <div class="profile">
+        <img src="images/avatar-testimonial.jpg" alt="Profile">
+        <div>
+          <h4>Kyle Burton</h4>
+          <p>Founder & CEO, Huddle</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="early-access">
+    <div class="container">
+      <h2>Get early access today</h2>
+      <p>It only takes a minute to sign up and our free starter tier is extremely generous. If you have any questions, our support team would be happy to help you.</p>
+      <div class="input-row">
+        <input type="email" placeholder="email@example.com">
+        <button>Get Started For Free</button>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-container">
+      <div class="logo">
+        <img src="images/logo.svg" alt="Fylo">
+      </div>
+      <div class="footer-content">
+        <div class="contact">
+          <div><img src="images/icon-phone.svg" alt="">Phone: +1-543-123-4567</div>
+          <div><img src="images/icon-email.svg" alt="">example@fylo.com</div>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
