@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Treats Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-white: hsl(0, 0%, 100%);
+            --rose-50: hsl(20, 50%, 98%);
+            --rose-100: hsl(13, 31%, 94%);
+            --rose-300: hsl(14, 25%, 72%);
+            --rose-400: hsl(7, 20%, 60%);
+            --rose-500: hsl(12, 20%, 44%);
+            --rose-900: hsl(14, 65%, 9%);
+            --red: hsl(14, 86%, 42%);
+            --green: hsl(159, 69%, 38%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Red Hat Text', sans-serif;
+            background-color: var(--rose-50);
+            color: var(--rose-900);
+            padding: 2rem 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--rose-900);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--red);
+            color: white;
+            font-size: 0.75rem;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .page-title {
+            margin: 2rem 0;
+            text-align: center;
+            color: var(--rose-900);
+        }
+
+        .grid-desserts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .dessert {
+            background-color: var(--color-white);
+            border-radius: 15px;
+            overflow: hidden;
+            
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dessert:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .dessert-image {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+        }
+
+        .dessert-info {
+            padding: 1.5rem;
+        }
+
+        .dessert-category {
+            font-size: 0.75rem;
+            color: var(--rose-400);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .dessert h3 {
+            font-size: 1.2rem;
+            color: var(--rose-900);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .dessert p {
+            font-size: 1.25rem;
+            color: var(--rose-500);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .dessert button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--rose-900);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Red Hat Text', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dessert button:hover {
+            background-color: var(--red);
+        }
+
+        @media (max-width: 768px) {
+            .grid-desserts-container {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-desserts-container {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+
+        .add-to-cart {
+            background-color: var(--green);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Sweet Treats</div>
+        <div class="cart-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" fill="#1F1511"/>
+                <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" fill="#1F1511"/>
+                <path d="M3 3H5L5.4 5M5.4 5H21.8L19 15H7L5.4 5Z" stroke="#1F1511" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="cart-count">0</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Our Delicious Desserts</h1>
+
+        <div class="grid-desserts-container">
+            <div class="dessert">
+                <img src="./assets/images/image-cake-desktop.jpg" alt="Red Velvet Cake" class="dessert-image">
+                <div class="dessert-info">
+                    <div class="dessert-category">Cake</div>
+                    <h3>Red Velvet Cake</h3>
+                    <p>$4.50</p>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+
+            <div class="dessert">
+                <img src="./assets/images/image-waffle-desktop.jpg" alt="Waffle with Berries" class="dessert-image">
+                <div class="dessert-info">
+                    <div class="dessert-category">Waffle</div>
+                    <h3>Waffle with Berries</h3>
+                    <p>$6.50</p>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+
+            <div class="dessert">
+                <img src="./assets/images/image-macaron-desktop.jpg" alt="Macaron Mix of Five" class="dessert-image">
+                <div class="dessert-info">
+                    <div class="dessert-category">Macaron</div>
+                    <h3>Macaron Mix of Five</h3>
+                    <p>$8.00</p>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+
+            <div class="dessert">
+                <img src="./assets/images/image-tiramisu-desktop.jpg" alt="Classic Tiramisu" class="dessert-image">
+                <div class="dessert-info">
+                    <div class="dessert-category">Tiramisu</div>
+                    <h3>Classic Tiramisu</h3>
+                    <p>$5.50</p>
+                    <button class="add-to-cart">Add to cart</button>
+                </div>
+            </div>
+
+            <div class="dessert">
+                <img src="./assets/images/image-brownie-desktop.jpg" alt="Salted Caramel Brownie" class="dessert-image">
+                <div class="dessert-info">
+                    <div class="dessert-category">Brownie</div>
+                    <h3>Salted Caramel Brownie</h3>
+                    <p>$4.50</p>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+
+            <div class="dessert">
+                <img src="./assets/images/image-meringue-desktop.jpg" alt="Lemon Meringue Pie" class="dessert-image">
+                <div class="dessert-info">
+                    <div class="dessert-category">Pie</div>
+                    <h3>Lemon Meringue Pie</h3>
+                    <p>$5.00</p>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple cart functionality
+        const cartCount = document.querySelector('.cart-count');
+        const addButtons = document.querySelectorAll('.dessert button');
+        let count = 0;
+
+        addButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                count++;
+                cartCount.textContent = count;
+                
+                // Change button text temporarily for feedback
+                const originalText = button.textContent;
+                button.textContent = 'Added!';
+                button.style.backgroundColor = 'var(--green)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
