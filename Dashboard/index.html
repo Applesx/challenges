@@ -1,54 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Table UI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="tables-container">
-        <div class="table-card">
-            <div class="table-header">
-                <div class="table-actions">
-                    <button class="btn-filter">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 3H2L10 12.46V19L14 21V12.46L22 3Z" stroke="#687182" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <div class="search-container">
-                        <input type="text" placeholder="Search..." class="search-input">
-                        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                                stroke="#687182" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <button class="btn-add">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 5V19M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                        Add customer
-                    </button>
-                </div>
-                <div class="table-container">
-                    <table class="data-table">
-                        <tr>
-                            <th class="checkbox-cell">
-                                <label class="checkbox">
-                                    <input type="checkbox-container">
-                                    <span class="checkbox" id="select-all">
-                                        
-                                    </span>
-                            </th>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-</body>
+  <div class="container">
+    <div class="notification-banner">
+      <span class="emoji">🎉</span> Also, I have published <a href="#" class="link">Data Table v3</a> which has interactive components. <span class="emoji">👇</span>
+    </div>
 
+    <div class="tables-container">
+      <!-- Left Table -->
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-actions">
+            <button class="btn-filter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 3H2L10 12.46V19L14 21V12.46L22 3Z" stroke="#687182" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="search-container">
+              <input type="text" placeholder="Search..." class="search-input">
+              <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#687182" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <button class="btn-add">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 5V19M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Add customer
+          </button>
+        </div>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th class="checkbox-cell">
+                  <label class="checkbox-container">
+                    <input type="checkbox" id="select-all-left">
+                    <span class="checkmark"></span>
+                  </label>
+                </th>
+                <th class="id-cell">#</th>
+                <th class="sortable">
+                  NAME
+                  <svg class="sort-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 10L12 14L16 10" stroke="#464F60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </th>
+                <th>DESCRIPTION</th>
+                <th>STATUS</th>
+                <th>RATE</th>
+                <th>BALANCE</th>
+                <th>DEPOSIT</th>
+              </tr>
+            </thead>
+            <tbody id="table-body-left">
+              <!-- Table rows will be inserted by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-footer">
+          <div class="pagination-info">1-10 of 97</div>
+          <div class="pagination-controls">
+            <span>Rows per page: 10</span>
+            <button class="btn-page prev">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="#687182" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="btn-page next">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="#687182" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-footer-links">
+          <div class="data-table-info">
+            <span class="emoji">🎉</span> Data Table v3 <span class="emoji">👋</span>
+          </div>
+          <div class="social-links">
+            Follow me on: 
+            <a href="#" class="link">figma</a> | 
+            <a href="#" class="link">twitter</a> | 
+            <a href="#" class="link">dribbble</a>
+          </div>
+        </div>
+      </div>
+  <script src="script.js"></script>
+</body>
 </html>
